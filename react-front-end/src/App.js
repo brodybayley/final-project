@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./App.css";
 import { Icon } from "leaflet";
 import useSwr from "swr";
 import axios from "axios";
-import { OpenStreetMapProvider, GeoSearchControl } from "leaflet-geosearch";
 
 const fetcher = (url) => axios.get(url).then((res) => res.data);
 
@@ -13,23 +12,6 @@ export const icon = new Icon({
   iconSize: [25, 25],
 });
 
-// make new leaflet element
-const Search = (props) => {
-  const map = useMap(); // access to leaflet map
-  const { provider } = props;
-
-  useEffect(() => {
-    const searchControl = new GeoSearchControl({
-      provider,
-    });
-
-    map.addControl(searchControl); // this is how you add a control in vanilla leaflet
-    return () => map.removeControl(searchControl);
-  }, [props]);
-
-  return null; // don't want anything to show up from this comp
-};
-
 function App() {
   const url = "https://data.sfgov.org/resource/ramy-di5m.json";
   const { data, error } = useSwr(url, { fetcher });
@@ -37,7 +19,6 @@ function App() {
 
   return (
     <MapContainer center={[37.70820204901914, -122.45808060394913]} zoom={12}>
-      <Search provider={new OpenStreetMapProvider()} />
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
