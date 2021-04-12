@@ -15,7 +15,8 @@ CREATE TABLE users (
 
 CREATE TABLE areas (
   id SERIAL PRIMARY KEY NOT NULL,
-  name VARCHAR(255)
+  rating INTEGER NOT NULL, 
+  json_text VARCHAR
 );
 
 CREATE TABLE buildings (

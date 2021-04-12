@@ -1,0 +1,6 @@
+DECLARE @JSON VARCHAR(MAX);
+
+SELECT @JSON = BulkColumn
+FROM OPENROWSET 
+(BULK 'SFNeighborhoods.json', SINGLE_CLOB) 
+AS json_text;
