@@ -2,11 +2,29 @@ const router = require("express").Router();
 
 module.exports = (db) => {
   //   Read => GET => ‘/api/users’					Gets all users
-  //   Read => GET => ‘api/users/:id’				Gets a user
+  // Gets a user
+  router.get("/users/:id", (req, res) => {
+    // const userID = req.params.id;
+    const userID = 1;
+    db.query(
+      `
+      SELECT *
+      FROM users
+      WHERE id = $1
+      `,
+      [userID]
+    )
+      .then(({ rows: user }) => res.json(user))
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
+      });
+  });
 
   //Access users favourites
   router.get("/users/:id/favourites", (req, res) => {
-    const userID = req.params.id;
+    // const userID = req.params.id;
+    const userID = 1;
+
     db.query(
       `
       SELECT * FROM favourites
@@ -14,7 +32,7 @@ module.exports = (db) => {
       `,
       [userID]
     )
-      .then((favourites) => res.json(favourites))
+      .then(({ rows: favourites }) => res.json(favourites))
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
@@ -52,4 +70,5 @@ module.exports = (db) => {
         res.status(204).json({ error: err.message });
       });
   });
+  return router;
 };

@@ -7,12 +7,14 @@ const PORT = 8080;
 
 const db = require("./db");
 const buildings = require("./routes/buildings");
+const users = require("./routes/users");
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: false }));
 App.use(BodyParser.json());
 App.use(Express.static("public"));
 
 App.use("/api", buildings(db));
+App.use("/api", users(db));
 
 App.listen(PORT, () => {
   // eslint-disable-next-line no-console
