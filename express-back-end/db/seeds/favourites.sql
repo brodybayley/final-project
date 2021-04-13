@@ -1,2 +1,2 @@
-INSERT INTO favourites (user_id, building_id, is_active)
-      VALUES (1, 16, true), (1, 17, true), (1, 18, true), (1, 19, true), (2, 18, true), (2, 20, true), (3, 16, false), (3, 19, true), (3, 20, true);
+INSERT INTO favourites (user_id, building_id)
+      VALUES (1, 6), (1, 7), (1, 8), (1, 9), (2, 8), (2, 10), (3, 6), (3, 9), (3, 10);

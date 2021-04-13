@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 //component to render all Favourites for a user
 class Favourites extends Component {
-  state = { Favourites: [] };
+  state = { favourites: [] };
 
   componentDidMount() {
-    fetch("/api/:id/favourites")
+    fetch("/api/users/1/favourites")
       .then((res) => res.json())
       .then((favourites) => this.setState({ favourites }));
   }

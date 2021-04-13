@@ -81,8 +81,11 @@ module.exports = (db) => {
 
   //Favourite a building
   router.post("/users/:id/favourites", (req, res) => {
-    const userID = req.params.id;
-    const buildingID = req.body.id;
+    // const userID = req.params.id;
+    // const buildingID = req.body.id;
+    const userID = 1;
+    const buildingID = 16;
+
     db.query(
       `
       INSERT into favourites (user_id, building_id) VALUES ($1, $2)
