@@ -2,7 +2,6 @@ import React from "react";
 import { observer } from "mobx-react";
 import UserStore from "../../stores/UserStore";
 import LoginForm from "./LoginForm";
-import InputField from "./InputField";
 import SubmitButton from "./SubmitButton";
 
 class Login extends React.Component {
@@ -12,7 +11,7 @@ class Login extends React.Component {
         method: "post",
         headers: {
           Accept: "application/json",
-          "Content-type": "application/json",
+          "Content-Type": "application/json",
         },
       });
 
@@ -38,7 +37,7 @@ class Login extends React.Component {
         method: "post",
         headers: {
           Accept: "application/json",
-          "Content-type": "application/json",
+          "Content-Type": "application/json",
         },
       });
 
