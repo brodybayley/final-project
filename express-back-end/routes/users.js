@@ -1,8 +1,49 @@
 const router = require("express").Router();
 
+// const login = (email, password) => {
+//   db.query(
+//     `
+//     SELECT * FROM users
+//     WHERE email = $1
+//     `,
+//     [email]
+//   )
+//     .then((res) => res.rows[0])
+//     .then((user) => {
+//       if (user.password === password) {
+//         return user;
+//       }
+//       return null;
+//     });
+// };
+// exports.login = login;
+
 module.exports = (db) => {
-  //   Read => GET => ‘/api/users’					Gets all users
-  // Gets a user
+  //   // access log in page
+  //   router.get("/login", (req, res) => {
+  //     const templateVars = { user: null };
+  //     res.render("login", templateVars);
+  //   });
+
+  //   // logs in a user
+  //   router.post("/login", (req, res) => {
+  //     const { email, password } = req.body;
+  //     login(email, password)
+  //       .then((user) => {
+  //         if (!user) {
+  //           res.send(
+  //             "Wrong login. Please check your email or password and try again."
+  //           );
+  //         }
+  //         req.session.userId = user.id;
+  //         res.redirect("/");
+  //       })
+  //       .catch((err) => {
+  //         res.status(500).json({ error: err.message });
+  //       });
+  //   });
+
+  // Gets a user profile
   router.get("/users/:id", (req, res) => {
     // const userID = req.params.id;
     const userID = 1;
