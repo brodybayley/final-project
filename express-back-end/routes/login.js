@@ -1,13 +1,13 @@
 const bcrypt = require("bcrypt");
 
 class Login {
-  consturcotr(app, db) {
+  constructor(app, db) {
     this.login(app, db);
     this.logout(app, db);
     this.isLoggedIn(app, db);
   }
 
-  login() {
+  login(app, db) {
     app.post("./login", (req, res) => {
       let username = req.body.username;
       let password = req.body.password;
@@ -22,10 +22,10 @@ class Login {
         return;
       }
 
-      let cols = [username];
+      const userID = [username];
       db.query(
-        "SELECT * FROM users WHERE username = ? LIMIT 1",
-        cols,
+        `SELECT * FROM users WHERE username = $1`,
+        [userID],
         (err, data, fields) => {
           if (err) {
             res.json({
@@ -86,10 +86,10 @@ class Login {
   isLoggedIn(app, db) {
     app.post("/isLoggedIn", (req, res) => {
       if (req.session.userID) {
-        let cols = [req.session.userID];
+        const userID = [req.session.userID];
         db.query(
-          "SELECT * FROM user WHERE id = ? LIMIT 1",
-          cols,
+          `SELECT * FROM users WHERE id = $1`,
+          [userID],
           (err, data, fields) => {
             if (data && data.length === 1) {
               res.json({

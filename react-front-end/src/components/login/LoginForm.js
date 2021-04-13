@@ -22,6 +22,7 @@ class LoginForm extends React.Component {
       [property]: val,
     });
   }
+
   resetForm() {
     this.setState({
       username: "",
@@ -49,7 +50,7 @@ class LoginForm extends React.Component {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringift({
+        body: JSON.stringify({
           username: this.state.username,
           password: this.state.password,
         }),
