@@ -5,7 +5,7 @@ class Favourites extends Component {
   state = { favourites: [] };
 
   componentDidMount() {
-    fetch("/api/users/1/favourites")
+    fetch("/api/users/:id/favourites")
       .then((res) => res.json())
       .then((favourites) => this.setState({ favourites }));
   }

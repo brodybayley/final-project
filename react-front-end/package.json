@@ -2,9 +2,12 @@
   "name": "react-front-end",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "axios": "^0.18.1",
     "leaflet": "^1.7.1",
+    "mobx": "^6.2.0",
+    "mobx-react": "^7.1.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-leaflet": "^3.1.0",

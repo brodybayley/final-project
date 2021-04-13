@@ -69,6 +69,7 @@ module.exports = (db) => {
     db.query(
       `
       SELECT * FROM favourites
+      JOIN buildings ON building_id = buildings.id
       WHERE user_id = $1
       `,
       [userID]
@@ -81,10 +82,8 @@ module.exports = (db) => {
 
   //Favourite a building
   router.post("/users/:id/favourites", (req, res) => {
-    // const userID = req.params.id;
-    // const buildingID = req.body.id;
-    const userID = 1;
-    const buildingID = 16;
+    const userID = req.params.id;
+    const buildingID = req.body.id;
 
     db.query(
       `
