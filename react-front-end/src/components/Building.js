@@ -41,7 +41,7 @@ const Building = () => {
   return (
     <div className="building-container">
       <div className="building-header">
-        <div key={building.id}>
+        <div key={building.building_id}>
           <h1>{building.name}</h1>
           <h3>{building.neighbourhood} Neighbourhood</h3>
           {/* TODO: How to make this render number of stars? */}
@@ -54,7 +54,7 @@ const Building = () => {
             src={building.image_url}
             alt={building.name}
           />
-          <FavouriteButton buildingId={building.id} />
+          <FavouriteButton buildingId={building.building_id} />
         </div>
       </div>
       <div className="building-details">
@@ -62,7 +62,7 @@ const Building = () => {
           <div className="percentage-circle" style={{ width: 80, height: 80 }}>
             <h3>Landlord Approval</h3>
             <CircularProgressbar
-              value={landlordlandlord\_percentage}
+              // value={landlordlandlord\_percentage}
               text={`${landlord_percentage}%`}
               strokeWidth={10}
               styles={buildStyles({

@@ -11,14 +11,13 @@ export default function FavouriteButton(props) {
   // Add or delete favourite
   const handleFav = (buildingId) => {
     const body = { buildingId, user_id: 1 };
-    axios
-      .post(`/api/buildings/favourite/${buildingId}`, body)
-      .then((res) => {
+    axios.post(`/api/buildings/favourite/${buildingId}`, body).then((res) => {
+      if (res.length > 0) {
         setFavourite(favourite);
-      })
-      .catch((error) => {
-        throw error;
-      });
+      } else {
+        setFavourite(!favourite);
+      }
+    });
   };
 
   return (
