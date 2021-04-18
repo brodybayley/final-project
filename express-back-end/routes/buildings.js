@@ -73,6 +73,7 @@ module.exports = (db) => {
   //add or delete a favourite
   router.post("/favourite/:buildingId", (req, res) => {
     const buildingId = req.params.buildingId;
+    console.log(buildingId);
 
     db.query(
       `

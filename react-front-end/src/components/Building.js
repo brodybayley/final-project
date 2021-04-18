@@ -9,7 +9,6 @@ import StarIcon from "@material-ui/icons/Star";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-
 //component to render a building
 const Building = () => {
   const [building, setBuilding] = useState([]);
@@ -20,17 +19,17 @@ const Building = () => {
 
   // Converts the ratios to a whole number
   // TODO: Debug NaN from showing
-  const landlord_percentage = Number(building.landlord_ratio)*100;
-  const recommend_to_friend_percentage = Number(building.recommend_to_friend_ratio)*100;
+  const landlord_percentage = Number(building.landlord_ratio) * 100;
+  const recommend_to_friend_percentage =
+    Number(building.recommend_to_friend_ratio) * 100;
 
   // Determines colour of the percentage circles
   const getColour = (r) => {
-    return r > 50 ? "green" : "red"
-  }
-  
+    return r > 50 ? "green" : "red";
+  };
+
   useEffect(() => {
-    axios.get(`/api/buildings/${buildingId}`)
-    .then((res) => {
+    axios.get(`/api/buildings/${buildingId}`).then((res) => {
       setBuilding(res.data[0]);
     });
   }, [buildingId]);
@@ -39,7 +38,6 @@ const Building = () => {
     history.push("/map");
   };
 
-
   return (
     <div className="building-container">
       <div className="building-header">
@@ -47,7 +45,9 @@ const Building = () => {
           <h1>{building.name}</h1>
           <h3>{building.neighbourhood} Neighbourhood</h3>
           {/* TODO: How to make this render number of stars? */}
-          <h4><StarIcon key={building.average_building_rating}/></h4>
+          <h4>
+            <StarIcon key={building.average_building_rating} />
+          </h4>
           <p>{building.address}</p>
           <img
             className="building_amenities-image"
@@ -59,30 +59,27 @@ const Building = () => {
       </div>
       <div className="building-details">
         <div className="percentage-circles">
-        <div className="percentage-circle" style={{width: 80, height: 80}}>
-          <h3>Landlord Approval</h3>
+          <div className="percentage-circle" style={{ width: 80, height: 80 }}>
+            <h3>Landlord Approval</h3>
             <CircularProgressbar
-              value={landlord_percentage}
+              value={landlordlandlord\_percentage}
               text={`${landlord_percentage}%`}
               strokeWidth={10}
-              styles = {buildStyles({
+              styles={buildStyles({
                 textColor: getColour(landlord_percentage),
-                pathColor: getColour(landlord_percentage)
-              }
-              )}
+                pathColor: getColour(landlord_percentage),
+              })}
             />
-          <h3>Recommend to Friend</h3>
+            <h3>Recommend to Friend</h3>
             <CircularProgressbar
               value={recommend_to_friend_percentage}
               text={`${recommend_to_friend_percentage}%`}
               strokeWidth={10}
-              styles = {buildStyles({
+              styles={buildStyles({
                 textColor: getColour(recommend_to_friend_percentage),
-                pathColor: getColour(recommend_to_friend_percentage)
-              }
-              )}
+                pathColor: getColour(recommend_to_friend_percentage),
+              })}
             />
-            
           </div>
         </div>
         <div className="review-list">
