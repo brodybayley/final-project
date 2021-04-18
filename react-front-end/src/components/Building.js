@@ -12,8 +12,9 @@ import "react-circular-progressbar/dist/styles.css";
 //component to render a building
 const Building = () => {
   const [building, setBuilding] = useState([]);
+  const [isFavourite, setIsFavourite] = useState(false);
 
-  const { buildingId } = useParams();
+  const { buildingId, userId } = useParams();
 
   const history = useHistory();
 
@@ -28,16 +29,29 @@ const Building = () => {
     return r > 50 ? "green" : "red";
   };
 
+  // const isFavourited = (favouriteList) => {
+  //   favouriteList.includes(buildingId) ?
+  //     setIsFavourite(true)
+  // }
+
   useEffect(() => {
     axios.get(`/api/buildings/${buildingId}`).then((res) => {
       setBuilding(res.data[0]);
     });
   }, [buildingId]);
+  // axios.get(`/api/users/${userId}/favourites`).then(
+  //   (res) => {
+  //     console.log(res);
+  // },
+  //     [buildingId]
+  //   );
+  // });
 
   const handleClick = () => {
     history.push("/map");
   };
 
+  console.log("building:", building);
   return (
     <div className="building-container">
       <div className="building-header">

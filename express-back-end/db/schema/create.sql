@@ -54,7 +54,8 @@ CREATE TABLE reviews (
 CREATE TABLE favourites (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  building_id INTEGER REFERENCES buildings(id) ON DELETE CASCADE
+  building_id INTEGER REFERENCES buildings(id) ON DELETE CASCADE,
+  is_favourited BOOLEAN
 );
 
 CREATE TABLE amenities (

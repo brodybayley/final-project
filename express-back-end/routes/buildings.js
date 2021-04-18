@@ -85,6 +85,7 @@ module.exports = (db) => {
     ).then(({ rows: building }) => {
       //query to delete favourite
       if (building.length > 0) {
+        console.log(building);
         db.query(
           `
             DELETE FROM favourites
@@ -101,10 +102,10 @@ module.exports = (db) => {
         //query to add a favourite
         db.query(
           `
-            INSERT into favourites (user_id, building_id) VALUES ($1, $2)
+            INSERT into favourites (user_id, building_id, is_active) VALUES ($1, $2, $3)
             RETURNING *
             `,
-          [userId, buildingId]
+          [userId, buildingId, true]
         )
           .then((result) => res.send("Favourite Added"))
           .catch((err) => {

@@ -12,6 +12,7 @@ export default function FavouriteButton(props) {
   const handleFav = (buildingId) => {
     const body = { buildingId, user_id: 1 };
     axios.post(`/api/buildings/favourite/${buildingId}`, body).then((res) => {
+      console.log(res);
       if (res.length > 0) {
         setFavourite(favourite);
       } else {
@@ -20,9 +21,10 @@ export default function FavouriteButton(props) {
     });
   };
 
+  console.log("favourite:", favourite);
   return (
     <div className="favourite-button">
-      {!favourite && (
+      {favourite && (
         <Button
           onClick={() => {
             handleFav(props.buildingId);
@@ -35,7 +37,7 @@ export default function FavouriteButton(props) {
           Favourite this property!
         </Button>
       )}
-      {favourite && (
+      {!favourite && (
         <Button
           onClick={() => {
             handleFav(props.buildingId);
