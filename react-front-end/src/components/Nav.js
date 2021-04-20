@@ -38,7 +38,7 @@ export default function Nav() {
         </Link>
       </ul>
       <Avatar alt="Cindy Baker" src={avatarimg} className={classes.avatar} />
-      <p>May Baker</p>
+      <p>Jerome Wright</p>
     </nav>
     
   );

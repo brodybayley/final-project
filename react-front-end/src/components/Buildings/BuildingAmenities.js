@@ -15,17 +15,17 @@ export default function BuildingAmenities() {
   }, []);
 
   return (
-    <Card variant="outlined" className="amenities-container">
+    <Card className="amenities-container">
       <h2>Amenities</h2>
-      <Grid direction="row" container spacing={3} className="amenities-box">
+      <Grid direction="row" className="amenities-box">
         {amentities.map((amenity) => (
           <Grid item xs className="amenities-item" key={amenity.id}>
-            <p>{amenity.name}</p>
             <img
               className="building_amenities-image"
               src={amenity.image_url}
               alt={amenity.name}
             />
+            {amenity.name}
           </Grid>
         ))}
       </Grid>
