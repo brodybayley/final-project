@@ -5,7 +5,7 @@ import ReviewsList from "../Reviews/ReviewsList";
 import BuildingAmenities from "./BuildingAmenities";
 import FavouriteButton from "../Favourites/FavouriteButton";
 import AmenMap from "../Map/AmenMap";
-// import PercentageCircles from "./PercentageCircles";
+import PercentageCircles from "./PercentageCircles";
 import StarIcon from "@material-ui/icons/Star";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -96,10 +96,9 @@ const Building = () => {
             <h3>Recommend to Friend</h3>
           </div>
         </div>
-        {/* <PercentageCircles /> */}
         
-        <FavouriteButton className="favourite-button" buildingId={building.building_id} />
-        <ReviewsList />
+          <FavouriteButton className="favourite-button" buildingId={building.building_id} />
+          <ReviewsList />
         </div>
         <div className="amenities-and-map">
           <BuildingAmenities />
