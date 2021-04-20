@@ -200,7 +200,7 @@ export default function ReviewsForm(props) {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                value={formData.title}
+                defaultValue={formData.title}
                 type="text"
                 variant="outlined"
                 required
