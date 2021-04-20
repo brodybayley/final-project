@@ -7,6 +7,8 @@ import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
 import StarIcon from "@material-ui/icons/Star";
+import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
+import ArrowBackOutlinedIcon from '@material-ui/icons/ArrowBackOutlined';
 import Typography from "@material-ui/core/Typography";
 import Popup from "../controls/Popup";
 import "./Reviews.css";
@@ -52,6 +54,7 @@ export default function ReviewsList(props) {
         const newReview = review.filter((item) => item.review_id !== review_id);
         setReview(newReview);
       }, 500);
+      window.location.reload();
     });
   };
 
@@ -73,6 +76,7 @@ export default function ReviewsList(props) {
           variant="outlined"
           onClick={handleClick}
         >
+        <ArrowBackOutlinedIcon></ArrowBackOutlinedIcon>
           Back to Map
         </Button>
         <Button
@@ -84,7 +88,8 @@ export default function ReviewsList(props) {
             setRecordForEdit(null);
           }}
         >
-          Add new review
+        <AddCircleOutlineOutlinedIcon></AddCircleOutlineOutlinedIcon>
+           Add review
         </Button>
       </div>
       <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}>
