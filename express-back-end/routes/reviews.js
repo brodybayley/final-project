@@ -63,10 +63,9 @@ module.exports = (db) => {
     });
   })
 
-  const reviewId = req.body.review_id;
 
   // Updates a review
-  router.post(`/api/reviews/${reviewId}`, (req, res) => {
+  router.post(`/api/reviews/`, (req, res) => {
     console.log('Req session from reviews edit route', req.body)
     console.log('Res response from reviews edit', res.body)
     const review_id = req.body.review_id;

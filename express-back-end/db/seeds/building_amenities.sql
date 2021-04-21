@@ -10,9 +10,9 @@ INSERT INTO building_amenities (building_id, name, image_url)
       (6, 'Pet Friendly', 'https://www.flaticon.com/svg/vstatic/svg/2138/2138309.svg?token=exp=1618989901~hmac=fa4c3b0bfccc2422d9664b41e5a78215'),
       (111, 'Pet Friendly', 'https://www.flaticon.com/svg/vstatic/svg/2138/2138309.svg?token=exp=1618989901~hmac=fa4c3b0bfccc2422d9664b41e5a78215'),
       (52, 'Pet Friendly', 'https://www.flaticon.com/svg/vstatic/svg/2138/2138309.svg?token=exp=1618989901~hmac=fa4c3b0bfccc2422d9664b41e5a78215'),
-      (6, 'Underground Parking', 'https://www.flaticon.com/svg/vstatic/svg/2503/2503511.svg?token=exp=1618989939~hmac=1ed7322e1823eba2cb95c5762cd34980'),
-      (111, 'Underground Parking', 'https://www.flaticon.com/svg/vstatic/svg/2503/2503511.svg?token=exp=1618989939~hmac=1ed7322e1823eba2cb95c5762cd34980'),
-      (101, 'Underground Parking', 'https://www.flaticon.com/svg/vstatic/svg/2503/2503511.svg?token=exp=1618989939~hmac=1ed7322e1823eba2cb95c5762cd34980'),
+      (6, 'Parking', 'https://www.flaticon.com/svg/vstatic/svg/2503/2503511.svg?token=exp=1618989939~hmac=1ed7322e1823eba2cb95c5762cd34980'),
+      (111, 'Parking', 'https://www.flaticon.com/svg/vstatic/svg/2503/2503511.svg?token=exp=1618989939~hmac=1ed7322e1823eba2cb95c5762cd34980'),
+      (101, 'Parking', 'https://www.flaticon.com/svg/vstatic/svg/2503/2503511.svg?token=exp=1618989939~hmac=1ed7322e1823eba2cb95c5762cd34980'),
       (6, 'Clubhouse', 'https://www.flaticon.com/svg/vstatic/svg/2069/2069425.svg?token=exp=1618989960~hmac=7f80edf7fa9b52f26ad0169e7213599f');
       
       
