@@ -39,11 +39,12 @@ const Buildings = (props) => {
     <div className="Buildings">
       {buildings.map((building) => (
         <Marker
+          className="building-marker"
           key={building.id}
           position={[building.latitude, building.longitude]}
           icon={icon}
         >
-          <Popup>
+          <Popup className="building-popup">
             <div>
               <h2>{building.name}</h2>
               <p>{building.address}</p>
