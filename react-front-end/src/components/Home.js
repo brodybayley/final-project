@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   container: {
-    padding: "75px 0 125px",
+    padding: "75px 0 75px",
   },
 
   itemContainer: {
@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgb(232 232 232 / 48%)",
     paddingTop: "80px",
     maxWidth: "300px",
-    minHeight: "440px",
+    minHeight: "300px",
     justifyContent: "flex-start",
     flexDirection: "column",
     alignSelf: "start",
@@ -74,8 +74,8 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     width: "20%",
     height: "100%",
-    margin: "45px auto",
-    color: "#61dafb",
+    margin: "20px auto",
+    color: "#20232a",
   },
 
   mapSub: {
@@ -130,6 +130,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     cursor: "pointer",
+  },
+
+  paragraphs: {
+    padding: "10px",
   },
 
   sanFran: {
@@ -234,18 +238,35 @@ export default function Home() {
         <Grid className={classes.itemContainer} container spacing={3}>
           <Grid className={classes.item} item xs>
             <RateReviewOutlinedIcon className={classes.svg} />
-            <Typography>Reviews</Typography>
-            <Typography>Leave property reviews</Typography>
+            <Typography variant="h5">Reviews</Typography>
+            <Typography className={classes.paragraphs}>
+              View 1000's of building reviews left by current or past residents.
+            </Typography>
+            <Typography className={classes.paragraphs}>
+              Have you reviewed your building yet? Add it today!
+            </Typography>
           </Grid>
           <Grid className={classes.item} item xs>
             <ApartmentOutlinedIcon className={classes.svg} />
-            <Typography>Properties</Typography>
-            <Typography>Search for properties</Typography>
+            <Typography variant="h5">Properties</Typography>
+            <Typography className={classes.paragraphs}>
+              Find out what people are saying about buildings from around the
+              corner to around the globe.
+            </Typography>
+            <Typography className={classes.paragraphs}>
+              Start your search today!
+            </Typography>
           </Grid>
           <Grid className={classes.item} item xs>
             <ExploreOutlinedIcon className={classes.svg} />
-            <Typography>Areas</Typography>
-            <Typography>Explore properties by area</Typography>
+            <Typography variant="h5">Areas</Typography>
+            <Typography className={classes.paragraphs}>
+              New in town or curious about neighborhood ratings?
+            </Typography>
+            <Typography className={classes.paragraphs}>
+              Let our heatmap fueled by user ratings lead you to your ideal
+              area!
+            </Typography>
           </Grid>
         </Grid>
       </Container>
@@ -259,15 +280,13 @@ export default function Home() {
           />
         </Grid>
         <Grid className={classes.mapText} item xs={4} m>
-          <Typography className={classes.mapSub}>
-            Switch between map styles
-          </Typography>
           <Typography variant="h4" className={classes.mapTitle}>
-            Map
+            Interactive Map
           </Typography>
           <Typography>
-            I want to see reviews of nearby apartments so I can get more
-            information
+            The map is designed to make your property search a breeze with
+            color-coded areas based on user ratings and filters to find your
+            home without the headache!
           </Typography>
         </Grid>
       </Grid>
