@@ -6,9 +6,14 @@
 
 .amenities-container {
   box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1);
-  padding: 24px;
+  padding: 15px;
   position: relative;
-  margin-bottom: 45px;
+  margin-bottom: 20px;
+  border: solid rgb(184, 184, 184) thin;
+}
+
+.amenities-container h2 {
+  margin-top: 0;
 }
 
 .amenities-item {
@@ -23,8 +28,39 @@
 
 .percentage-circle {
   display: flex;
-  flex-direction: row;
-  width: 100%;
+  position: relative;
+  margin: 0 24px 24px 30px;
+  padding: 15px;
+  justify-content: space-around;
+  border: solid rgb(184, 184, 184) thin;
+}
+
+.percentage-text h2 {
+  margin-top: 0;
+}
+
+.percentage-text {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.percantage-rating {
+  display: flex;
+  justify-content: center;
+}
+
+.percantage-rating p {
+  margin: 0 15px;
+}
+
+.percantage-rating svg {
+  fill: green;
+}
+
+.rating-circle {
+  display: flex;
   justify-content: space-around;
 }
 
@@ -57,8 +93,10 @@
 
 .building-header {
   display: grid;
-  grid-template: repeat(1, 1fr) / repeat(1, 1fr);
-  gap: 12px 12px;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
   margin-top: 30px;
 }
 
@@ -79,13 +117,21 @@
   margin: auto;
 }
 
-.building_header::after {
-  display: block;
-  position: relative;
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
-  margin-top: -150px;
-  height: 150px;
+.building_header {
   width: 100%;
-  content: '';
+  height: 650px;
 }
 
+.building-header-content {
+  position: relative;
+}
+
+.building-header-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    color: white;
+    background: linear-gradient(#ffffff00, #4e4e4e);
+}
+/* remove */

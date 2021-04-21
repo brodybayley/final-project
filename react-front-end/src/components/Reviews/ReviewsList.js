@@ -10,7 +10,7 @@ import StarIcon from "@material-ui/icons/Star";
 import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
 import ArrowBackOutlinedIcon from "@material-ui/icons/ArrowBackOutlined";
 import Typography from "@material-ui/core/Typography";
-import Popup from "../Controls/Popup";
+import Popup from "../controls/Popup";
 import "./Reviews.css";
 
 const useStyles = makeStyles((theme) => ({
