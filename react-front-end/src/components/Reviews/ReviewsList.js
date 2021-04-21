@@ -7,10 +7,10 @@ import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
 import StarIcon from "@material-ui/icons/Star";
-import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
-import ArrowBackOutlinedIcon from '@material-ui/icons/ArrowBackOutlined';
+import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
+import ArrowBackOutlinedIcon from "@material-ui/icons/ArrowBackOutlined";
 import Typography from "@material-ui/core/Typography";
-import Popup from "../controls/Popup";
+import Popup from "../Controls/Popup";
 import "./Reviews.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -29,8 +29,6 @@ export default function ReviewsList(props) {
   const [openPopup, setOpenPopup] = useState(false);
   const [recordForEdit, setRecordForEdit] = useState(null);
   const classes = useStyles();
-
-  console.log("ReviewsList.js recordForedit:", recordForEdit);
 
   const { buildingId } = useParams();
 
@@ -76,7 +74,7 @@ export default function ReviewsList(props) {
           variant="outlined"
           onClick={handleClick}
         >
-        <ArrowBackOutlinedIcon></ArrowBackOutlinedIcon>
+          <ArrowBackOutlinedIcon></ArrowBackOutlinedIcon>
           Back to Map
         </Button>
         <Button
@@ -88,8 +86,8 @@ export default function ReviewsList(props) {
             setRecordForEdit(null);
           }}
         >
-        <AddCircleOutlineOutlinedIcon></AddCircleOutlineOutlinedIcon>
-           Add review
+          <AddCircleOutlineOutlinedIcon></AddCircleOutlineOutlinedIcon>
+          Add review
         </Button>
       </div>
       <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}>

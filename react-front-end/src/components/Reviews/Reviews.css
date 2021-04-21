@@ -9,29 +9,25 @@
   width: 100%;
 }
 
-.review-list {
+/* .review-list {
   display: flex;
   flex-direction: column;
   width: calc(50% - 24px);
   margin: 12px;
-}
+} */
 
 .amenities-and-map {
-  width: calc(50% - 24px);
-  margin: 12px;
+  width: 100%;
 }
 
 .review-item {
   position: relative;
   margin: 24px;
   text-align: left;
-  box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1);
-;
 }
 
 .review-item:hover {
-  box-shadow: 4px 4px 0px 0px lightgray;
-  background-color: #e7feff;
+  box-shadow: 4px 4px 0px 0px rgb(97, 218, 251);
 }
 
 .review-item-top {
