@@ -105,7 +105,7 @@ export default function ReviewsForm(props) {
       user_id: 11
     }
     try {
-      const { data } = await axios.put(`/api/reviews/`, body)
+      const { data } = await axios.post(`/api/reviews/:review_id`, body)
       console.log('>>data', data)
       window.location.reload()
     } catch (error) {

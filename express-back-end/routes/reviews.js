@@ -63,9 +63,12 @@ module.exports = (db) => {
     });
   })
 
+  const reviewId = req.body.review_id;
+
   // Updates a review
-  router.put("/api/reviews/", (req, res) => {
+  router.post(`/api/reviews/${reviewId}`, (req, res) => {
     console.log('Req session from reviews edit route', req.body)
+    console.log('Res response from reviews edit', res.body)
     const review_id = req.body.review_id;
     const title = req.body.title;
     const comment = req.body.comment;
@@ -84,6 +87,7 @@ module.exports = (db) => {
     .then(result => {
       res
         .status(200)
+        .json(result);
     })
     .catch(err => {
       res
