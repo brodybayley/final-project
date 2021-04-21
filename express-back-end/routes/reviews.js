@@ -63,9 +63,12 @@ module.exports = (db) => {
     });
   })
 
+  const reviewId = req.body.review_id;
+
   // Updates a review
-  router.put("/api/reviews/:review_id", (req, res) => {
+  router.post(`/api/reviews/${reviewId}`, (req, res) => {
     console.log('Req session from reviews edit route', req.body)
+    console.log('Res response from reviews edit', res.body)
     const review_id = req.body.review_id;
     const title = req.body.title;
     const comment = req.body.comment;
@@ -78,12 +81,13 @@ module.exports = (db) => {
     
     const queryParams = [review_id, title, comment, landlord_rating, recommend_to_friend, building_rating, area_rating, building_id, user_id];
 
-    const queryString = `UPDATE reviews SET title = $2, comment = $3, landlord_rating = $4, recommend_to_friend = $5, building_rating = $6, area_rating = $7 building_id = $8, user_id = $9 WHERE id = $1 RETURNING *;`
+    const queryString = `UPDATE reviews SET title = $2, comment = $3, landlord_rating = $4, recommend_to_friend = $5, building_rating = $6, area_rating = $7, building_id = $8, user_id = $9 WHERE id = $1 RETURNING *;`
     // UPDATE reviews SET title = 'Do you work', comment = 'Hello Wrold', landlord_rating = false, recommend_to_friend = false, building_rating = 5, area_rating = 5, building_id = 6, user_id = 11 WHERE id = 174 RETURNING *;
     db.query(queryString, queryParams)
     .then(result => {
       res
         .status(200)
+        .json(result);
     })
     .catch(err => {
       res
