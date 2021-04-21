@@ -17,10 +17,10 @@ const Amenities = () => {
   const getIcon = (amenity) => {
     const image = 
     amenity.type === "School" ? "/transit.png" : 
-    amenity.type === "Groceries" ? "/groceries2.png" :
-    // amenity.type === "Park" ? "/restaurant2.png" :
-    amenity.type === "Restaurant" ? "/cafe.png" :
-    "/restaurant2.png";
+    amenity.type === "Groceries" ? "/groceries.png" :
+    amenity.type === "Park" ? "/cafe.png" :
+    // amenity.type === "Restaurant" ? "/cafe.png" :
+    "/restaurant.png";
 
     return new Icon({
       iconUrl: image,

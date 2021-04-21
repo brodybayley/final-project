@@ -52,7 +52,7 @@ function MainMap() {
       ? "#43978d"
       : r === "5"
       ? "#264d59"
-      : "gray";
+      : "#00000080";
   };
 
   const mapStyle = (feature) => {
