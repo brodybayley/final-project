@@ -30,7 +30,7 @@ function AmenMap() {
   return (
     <MapContainer
       center={[building[0].latitude, building[0].longitude]}
-      zoom={16}
+      zoom={15}
     >
       <TileLayer
         url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"

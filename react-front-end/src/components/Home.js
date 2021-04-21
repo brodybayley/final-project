@@ -9,7 +9,6 @@ import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
-// import Paper from '@material-ui/core/Paper';
 import mapImage from "../assets/map-home.png";
 
 import RateReviewOutlinedIcon from "@material-ui/icons/RateReviewOutlined";
@@ -19,7 +18,7 @@ import ExploreOutlinedIcon from "@material-ui/icons/ExploreOutlined";
 const useStyles = makeStyles((theme) => ({
   hero: {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1578409760928-91924170cb81?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')`,
-    height: "750px",
+    height: "450px",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -31,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   container: {
-    padding: "75px 0 125px",
+    padding: "75px 0 75px",
   },
 
   itemContainer: {
@@ -64,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgb(232 232 232 / 48%)",
     paddingTop: "80px",
     maxWidth: "300px",
-    minHeight: "200px",
+    minHeight: "300px",
     justifyContent: "flex-start",
     flexDirection: "column",
     alignSelf: "start",
@@ -75,8 +74,8 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     width: "20%",
     height: "100%",
-    margin: "45px auto",
-    color: "#61dafb",
+    margin: "20px auto",
+    color: "#20232a",
   },
 
   mapSub: {
@@ -121,15 +120,20 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
     gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)",
     gap: "12px 12px",
+    margin: "75px 0 0",
   },
 
   gridCard: {
-    height: "80px",
+    height: "100px",
     color: "white",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     cursor: "pointer",
+  },
+
+  paragraphs: {
+    padding: "10px",
   },
 
   sanFran: {
@@ -178,6 +182,7 @@ export default function Home() {
       <Box className={classes.hero}>
         <Container className={classes.heroContents}>
           <h1>GlassWalls</h1>
+          <h4 className="home-moto">Helping Each Other Find Home</h4>
           <TextField
             id="standard-full-width"
             className={classes.search}
@@ -195,35 +200,36 @@ export default function Home() {
               ),
             }}
           />
-
-          <h2>Popular North American cities</h2>
-          <Grid className={classes.grid} container>
-            <Grid
-              onClick={handleClick}
-              className={`${classes.gridCard} ${classes.sanFran}`}
-              item
-            >
-              <p>San Francisco</p>
-            </Grid>
-            <Grid className={`${classes.gridCard} ${classes.vancouver}`} item>
-              <p>Vancouver</p>
-            </Grid>
-            <Grid className={`${classes.gridCard} ${classes.losAngeles}`} item>
-              <p>Los Angeles</p>
-            </Grid>
-            <Grid className={`${classes.gridCard} ${classes.newYork}`} item>
-              <p>New York</p>
-            </Grid>
-            <Grid className={`${classes.gridCard} ${classes.toronto}`} item>
-              <p>Toronto</p>
-            </Grid>
-            <Grid className={`${classes.gridCard} ${classes.seattle}`} item>
-              <p>Seattle</p>
-            </Grid>
-          </Grid>
         </Container>
       </Box>
       <Container className={classes.container}>
+        <Typography className={classes.itemTitle} variant="h4">
+          Popular North American Cities
+        </Typography>
+        <Grid className={classes.grid} container>
+          <Grid
+            onClick={handleClick}
+            className={`${classes.gridCard} ${classes.sanFran}`}
+            item
+          >
+            <p>San Francisco</p>
+          </Grid>
+          <Grid className={`${classes.gridCard} ${classes.vancouver}`} item>
+            <p>Vancouver</p>
+          </Grid>
+          <Grid className={`${classes.gridCard} ${classes.losAngeles}`} item>
+            <p>Los Angeles</p>
+          </Grid>
+          <Grid className={`${classes.gridCard} ${classes.newYork}`} item>
+            <p>New York</p>
+          </Grid>
+          <Grid className={`${classes.gridCard} ${classes.toronto}`} item>
+            <p>Toronto</p>
+          </Grid>
+          <Grid className={`${classes.gridCard} ${classes.seattle}`} item>
+            <p>Seattle</p>
+          </Grid>
+        </Grid>
         <Grid>
           <Typography className={classes.itemTitle} variant="h4">
             How GlassWalls works for you
@@ -232,18 +238,35 @@ export default function Home() {
         <Grid className={classes.itemContainer} container spacing={3}>
           <Grid className={classes.item} item xs>
             <RateReviewOutlinedIcon className={classes.svg} />
-            <Typography>Reviews</Typography>
-            <Typography>Leave property reviews</Typography>
+            <Typography variant="h5">Reviews</Typography>
+            <Typography className={classes.paragraphs}>
+              View 1000's of building reviews left by current or past residents.
+            </Typography>
+            <Typography className={classes.paragraphs}>
+              Have you reviewed your building yet? Add it today!
+            </Typography>
           </Grid>
           <Grid className={classes.item} item xs>
             <ApartmentOutlinedIcon className={classes.svg} />
-            <Typography>Properties</Typography>
-            <Typography>Search for properties</Typography>
+            <Typography variant="h5">Properties</Typography>
+            <Typography className={classes.paragraphs}>
+              Find out what people are saying about buildings from around the
+              corner to around the globe.
+            </Typography>
+            <Typography className={classes.paragraphs}>
+              Start your search today!
+            </Typography>
           </Grid>
           <Grid className={classes.item} item xs>
             <ExploreOutlinedIcon className={classes.svg} />
-            <Typography>Areas</Typography>
-            <Typography>Explore properties by area</Typography>
+            <Typography variant="h5">Areas</Typography>
+            <Typography className={classes.paragraphs}>
+              New in town or curious about neighborhood ratings?
+            </Typography>
+            <Typography className={classes.paragraphs}>
+              Let our heatmap fueled by user ratings lead you to your ideal
+              area!
+            </Typography>
           </Grid>
         </Grid>
       </Container>
@@ -257,15 +280,13 @@ export default function Home() {
           />
         </Grid>
         <Grid className={classes.mapText} item xs={4} m>
-          <Typography className={classes.mapSub}>
-            Switch between map styles
-          </Typography>
           <Typography variant="h4" className={classes.mapTitle}>
-            Map
+            Interactive Map
           </Typography>
           <Typography>
-            I want to see reviews of nearby apartments so I can get more
-            information
+            The map is designed to make your property search a breeze with
+            color-coded areas based on user ratings and filters to find your
+            home without the headache!
           </Typography>
         </Grid>
       </Grid>

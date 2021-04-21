@@ -18,8 +18,7 @@ const Building = () => {
   const { buildingId } = useParams();
 
   // Determines colour of the percentage circles
-  const getColour = (r) => {  
-
+  const getColour = (r) => {
     return r > 50 ? "green" : r < 50 ? "red" : "lightgray";
   };
 
@@ -34,7 +33,6 @@ const Building = () => {
     }
     fetchData();
   }, [buildingId]);
-
 
   return (
     <div className="building-container">

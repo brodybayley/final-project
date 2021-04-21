@@ -30,8 +30,6 @@ export default function ReviewsList(props) {
   const [recordForEdit, setRecordForEdit] = useState(null);
   const classes = useStyles();
 
-  console.log("ReviewsList.js recordForedit:", recordForEdit);
-
   const { buildingId } = useParams();
 
   useEffect(() => {
