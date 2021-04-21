@@ -17,8 +17,7 @@ const Building = () => {
   const { buildingId } = useParams();
 
   // Determines colour of the percentage circles
-  const getColour = (r) => {  
-
+  const getColour = (r) => {
     return r > 50 ? "green" : r < 50 ? "red" : "lightgray";
   };
 
@@ -34,70 +33,77 @@ const Building = () => {
     fetchData();
   }, [buildingId]);
 
-
   return (
     <div className="building-container">
-        <div className="building-header" key={building.id}>
-          <div className="building-header-content">
-            <img
-              className="building_header"
-              src={building.image_url}
-              alt={building.name}
-            />
-            <div className="building-header-text">
-              <h1>{building.name}</h1>
-              <h3>{building.building_address}</h3>
-              <h4>
-                {building.average_building_rating ? (
-                  <>
-                    {" "}
-                    {[...Array(building.average_building_rating)].map(
-                      (stars, index) => {
-                        return <StarIcon key={index} />;
-                      }
-                    )}{" "}
-                  </>
-                ) : null}
-              </h4>
-              <p>{building.address}</p>
-            </div>
+      <div className="building-header" key={building.id}>
+        <div className="building-header-content">
+          <img
+            className="building_header"
+            src={building.image_url}
+            alt={building.name}
+          />
+          <div className="building-header-text">
+            <h1>{building.name}</h1>
+            <h3>{building.building_address}</h3>
+            <h4>
+              {building.average_building_rating ? (
+                <>
+                  {" "}
+                  {[...Array(building.average_building_rating)].map(
+                    (stars, index) => {
+                      return <StarIcon key={index} />;
+                    }
+                  )}{" "}
+                </>
+              ) : null}
+            </h4>
+            <p>{building.address}</p>
           </div>
+        </div>
       </div>
 
       <div className="building-details">
-      <div className="review-list">
-        <div className="percentage-circle">
-          <div className="landord-approval">
-            {isBusy ? <> {
+        <div className="review-list">
+          <div className="percentage-circle">
+            <div className="landord-approval">
+              {isBusy ? (
+                <>
+                  {" "}
+                  {
+                    <CircularProgressbar
+                      value={Number(building.landlord_ratio)}
+                      text={`${building.landlord_ratio}%`}
+                      strokeWidth={10}
+                      styles={buildStyles({
+                        textColor: getColour(Number(building.landlord_ratio)),
+                        pathColor: getColour(Number(building.landlord_ratio)),
+                      })}
+                    />
+                  }{" "}
+                </>
+              ) : (
+                "loading"
+              )}
+              <h3>Landlord Approval</h3>
+            </div>
+            <div className="recommend-friend">
               <CircularProgressbar
-              value={Number(building.landlord_ratio)}
-              text={`${building.landlord_ratio}%`}
-              strokeWidth={10}
-              styles = {buildStyles({
-                textColor: getColour(Number(building.landlord_ratio)),
-                pathColor: getColour(Number(building.landlord_ratio))
-              }
-              )}
+                value={building.recommend_to_friend_ratio}
+                text={`${building.recommend_to_friend_ratio}%`}
+                strokeWidth={10}
+                styles={buildStyles({
+                  textColor: getColour(building.recommend_to_friend_ratio),
+                  pathColor: getColour(building.recommend_to_friend_ratio),
+                })}
               />
-            }  </> : "Loading"}
-            <h3>Landlord Approval</h3>
+              <h3>Recommend to Friend</h3>
+            </div>
           </div>
-          <div className="recommend-friend">
-            <CircularProgressbar
-              value={building.recommend_to_friend_ratio}
-              text={`${building.recommend_to_friend_ratio}%`}
-              strokeWidth={10}
-              styles = {buildStyles({
-                textColor: getColour(building.recommend_to_friend_ratio),
-                pathColor: getColour(building.recommend_to_friend_ratio)
-              }
-              )}
-            />
-            <h3>Recommend to Friend</h3>
-          </div>
-        </div>
-        
-          <FavouriteButton className="favourite-button" buildingId={building.building_id} />
+
+          <FavouriteButton
+            className="favourite-button"
+            buildingId={building.building_id}
+          />
           <ReviewsList />
         </div>
         <div className="amenities-and-map">

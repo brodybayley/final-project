@@ -4,14 +4,14 @@ import axios from "axios";
 import { Marker, Popup } from "react-leaflet";
 import { Icon } from "leaflet";
 
-// Imports to style pop up 
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Link from '@material-ui/core/Link';
-import Typography from '@material-ui/core/Typography';
+// Imports to style pop up
+import { makeStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Link from "@material-ui/core/Link";
+import Typography from "@material-ui/core/Typography";
 import StarIcon from "@material-ui/icons/Star";
 
 // Styles pop up size
@@ -21,11 +21,10 @@ const useStyles = makeStyles({
   },
 });
 
-
 //component to render all buildings
 const Buildings = (props) => {
   const classes = useStyles();
-  
+
   const [buildings, setBuildings] = useState([]);
 
   const { buildingId } = useParams();
@@ -59,6 +58,7 @@ const Buildings = (props) => {
     <div className="Buildings">
       {buildings.map((building) => (
         <Marker
+          className="building-marker"
           key={building.id}
           position={[building.latitude, building.longitude]}
           icon={icon}
@@ -74,23 +74,37 @@ const Buildings = (props) => {
                   title={building.name}
                 />
                 <CardContent>
-                  <Typography component="h4">
-                  {building.name}
-                  </Typography>
+                  <Typography component="h4">{building.name}</Typography>
                   <p>
-                    {buildingRating ? <> {
-                        [...Array(buildingRating)].map((stars, index)=>{
-                            return <StarIcon className={classes.starRating} key={index}/>
-                          })          
-                      } </> : null
-                    }
+                    {buildingRating ? (
+                      <>
+                        {" "}
+                        {[...Array(buildingRating)].map((stars, index) => {
+                          return (
+                            <StarIcon
+                              className={classes.starRating}
+                              key={index}
+                            />
+                          );
+                        })}{" "}
+                      </>
+                    ) : null}
                   </p>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                  {building.address}
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    component="p"
+                  >
+                    {building.address}
                   </Typography>
-                  <Link component="button" variant="body2" color="primary" onClick={() => handleClick(building.id)}>
-                  PROPERTY DETAILS
-                </Link>
+                  <Link
+                    component="button"
+                    variant="body2"
+                    color="primary"
+                    onClick={() => handleClick(building.id)}
+                  >
+                    PROPERTY DETAILS
+                  </Link>
                 </CardContent>
               </CardActionArea>
             </Card>
