@@ -16,15 +16,15 @@ const Amenities = () => {
   // Selects icon image
   const getIcon = (amenity) => {
     const image = 
-    amenity.type === "School" ? "https://img.pngio.com/red-circle-png-images-download-424-png-resources-with-transparent-red-dot-png-260_260.png" : 
-    amenity.type === "Groceries" ? "/testicon.png" :
-    amenity.type === "Park" ? "/testicon.png" :
-    amenity.type === "Restaurant" ? "/testicon.png" :
-    "/bar.png";
+    amenity.type === "School" ? "/transit.png" : 
+    amenity.type === "Groceries" ? "/groceries2.png" :
+    // amenity.type === "Park" ? "/restaurant2.png" :
+    amenity.type === "Restaurant" ? "/cafe.png" :
+    "/restaurant2.png";
 
     return new Icon({
       iconUrl: image,
-      iconSize: [30, 40]
+      iconSize: [21, 33]
     })
   }
 
