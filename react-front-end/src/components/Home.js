@@ -9,7 +9,6 @@ import TextField from "@material-ui/core/TextField";
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
-// import Paper from '@material-ui/core/Paper';
 import mapImage from "../assets/map-home.png";
 
 import RateReviewOutlinedIcon from "@material-ui/icons/RateReviewOutlined";
@@ -19,7 +18,7 @@ import ExploreOutlinedIcon from "@material-ui/icons/ExploreOutlined";
 const useStyles = makeStyles((theme) => ({
   hero: {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1578409760928-91924170cb81?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')`,
-    height: "750px",
+    height: "450px",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -121,10 +120,11 @@ const useStyles = makeStyles((theme) => ({
     display: "grid",
     gridTemplate: "repeat(3, 1fr) / repeat(3, 1fr)",
     gap: "12px 12px",
+    margin: "75px 0 0",
   },
 
   gridCard: {
-    height: "80px",
+    height: "100px",
     color: "white",
     display: "flex",
     alignItems: "center",
@@ -178,6 +178,7 @@ export default function Home() {
       <Box className={classes.hero}>
         <Container className={classes.heroContents}>
           <h1>GlassWalls</h1>
+          <h4 className="home-moto">Helping Each Other Find Home</h4>
           <TextField
             id="standard-full-width"
             className={classes.search}
@@ -195,35 +196,36 @@ export default function Home() {
               ),
             }}
           />
-
-          <h2>Popular North American cities</h2>
-          <Grid className={classes.grid} container>
-            <Grid
-              onClick={handleClick}
-              className={`${classes.gridCard} ${classes.sanFran}`}
-              item
-            >
-              <p>San Francisco</p>
-            </Grid>
-            <Grid className={`${classes.gridCard} ${classes.vancouver}`} item>
-              <p>Vancouver</p>
-            </Grid>
-            <Grid className={`${classes.gridCard} ${classes.losAngeles}`} item>
-              <p>Los Angeles</p>
-            </Grid>
-            <Grid className={`${classes.gridCard} ${classes.newYork}`} item>
-              <p>New York</p>
-            </Grid>
-            <Grid className={`${classes.gridCard} ${classes.toronto}`} item>
-              <p>Toronto</p>
-            </Grid>
-            <Grid className={`${classes.gridCard} ${classes.seattle}`} item>
-              <p>Seattle</p>
-            </Grid>
-          </Grid>
         </Container>
       </Box>
       <Container className={classes.container}>
+        <Typography className={classes.itemTitle} variant="h4">
+          Popular North American Cities
+        </Typography>
+        <Grid className={classes.grid} container>
+          <Grid
+            onClick={handleClick}
+            className={`${classes.gridCard} ${classes.sanFran}`}
+            item
+          >
+            <p>San Francisco</p>
+          </Grid>
+          <Grid className={`${classes.gridCard} ${classes.vancouver}`} item>
+            <p>Vancouver</p>
+          </Grid>
+          <Grid className={`${classes.gridCard} ${classes.losAngeles}`} item>
+            <p>Los Angeles</p>
+          </Grid>
+          <Grid className={`${classes.gridCard} ${classes.newYork}`} item>
+            <p>New York</p>
+          </Grid>
+          <Grid className={`${classes.gridCard} ${classes.toronto}`} item>
+            <p>Toronto</p>
+          </Grid>
+          <Grid className={`${classes.gridCard} ${classes.seattle}`} item>
+            <p>Seattle</p>
+          </Grid>
+        </Grid>
         <Grid>
           <Typography className={classes.itemTitle} variant="h4">
             How GlassWalls works for you
