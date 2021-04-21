@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "rgb(232 232 232 / 48%)",
     paddingTop: "80px",
     maxWidth: "300px",
-    minHeight: "440px",
+    minHeight: "200px",
     justifyContent: "flex-start",
     flexDirection: "column",
     alignSelf: "start",

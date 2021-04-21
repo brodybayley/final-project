@@ -5,6 +5,7 @@ import ReviewsList from "../Reviews/ReviewsList";
 import BuildingAmenities from "./BuildingAmenities";
 import FavouriteButton from "../Favourites/FavouriteButton";
 import AmenMap from "../Map/AmenMap";
+import Card from "@material-ui/core/Card";
 import PercentageCircles from "./PercentageCircles";
 import StarIcon from "@material-ui/icons/Star";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
@@ -47,7 +48,18 @@ const Building = () => {
             <div className="building-header-text">
               <h1>{building.name}</h1>
               <h3>{building.building_address}</h3>
-              <h4>
+              <p>{building.address}</p>
+              <FavouriteButton className="favourite-button" buildingId={building.building_id} />
+            </div>
+          </div>
+      </div>
+
+      <div className="building-details">
+        <div className="review-list">
+        <Card className="percentage-circle">
+          <div className="percentage-text">
+          <h2>Property Rating</h2>
+            <p className="percantage-rating">
                 {building.average_building_rating ? (
                   <>
                     {" "}
@@ -58,50 +70,44 @@ const Building = () => {
                     )}{" "}
                   </>
                 ) : null}
-              </h4>
-              <p>{building.address}</p>
+              </p>
+          </div>
+            <div className="rating-circle">
+            <div className="landord-approval">
+              {isBusy ? <> {
+                <CircularProgressbar
+                value={Number(building.landlord_ratio)}
+                text={`${building.landlord_ratio}%`}
+                strokeWidth={10}
+                styles = {buildStyles({
+                  textColor: getColour(Number(building.landlord_ratio)),
+                  pathColor: getColour(Number(building.landlord_ratio))
+                }
+                )}
+                />
+              }  </> : "Loading"}
+              Landlord Approval
             </div>
-          </div>
-      </div>
-
-      <div className="building-details">
-      <div className="review-list">
-        <div className="percentage-circle">
-          <div className="landord-approval">
-            {isBusy ? <> {
+            <div className="recommend-friend">
               <CircularProgressbar
-              value={Number(building.landlord_ratio)}
-              text={`${building.landlord_ratio}%`}
-              strokeWidth={10}
-              styles = {buildStyles({
-                textColor: getColour(Number(building.landlord_ratio)),
-                pathColor: getColour(Number(building.landlord_ratio))
-              }
-              )}
+                value={building.recommend_to_friend_ratio}
+                text={`${building.recommend_to_friend_ratio}%`}
+                strokeWidth={10}
+                styles = {buildStyles({
+                  textColor: getColour(building.recommend_to_friend_ratio),
+                  pathColor: getColour(building.recommend_to_friend_ratio)
+                }
+                )}
               />
-            }  </> : "Loading"}
-            <h3>Landlord Approval</h3>
-          </div>
-          <div className="recommend-friend">
-            <CircularProgressbar
-              value={building.recommend_to_friend_ratio}
-              text={`${building.recommend_to_friend_ratio}%`}
-              strokeWidth={10}
-              styles = {buildStyles({
-                textColor: getColour(building.recommend_to_friend_ratio),
-                pathColor: getColour(building.recommend_to_friend_ratio)
-              }
-              )}
-            />
-            <h3>Recommend to Friend</h3>
-          </div>
-        </div>
-        
-          <FavouriteButton className="favourite-button" buildingId={building.building_id} />
+              Recommend to Friend
+            </div>
+            </div>
+        </Card>
           <ReviewsList />
         </div>
         <div className="amenities-and-map">
           <BuildingAmenities />
+          <h2>Nearby Amenities</h2>
           <AmenMap />
         </div>
       </div>
