@@ -1,22 +1,22 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo_transparent.png"
-import avatarimg from "../assets/3.jpg"
-import Avatar from '@material-ui/core/Avatar';
+import logo from "../assets/logo_transparent.png";
+import avatarimg from "../assets/3.jpg";
+import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles((theme) => ({
   navList: {
     color: "white",
-    textDecoration: "none"
+    textDecoration: "none",
+    marginRight: "10px",
   },
 
   avatar: {
     width: "35px",
     height: "35px",
-    marginRight: "50px"
-  }
-
+    marginRight: "10px",
+  },
 }));
 
 export default function Nav() {
@@ -38,8 +38,7 @@ export default function Nav() {
         </Link>
       </ul>
       <Avatar alt="Cindy Baker" src={avatarimg} className={classes.avatar} />
-      <p>Jerome Wright</p>
+      <p className={classes.navList}>Jerome Wright</p>
     </nav>
-    
   );
 }
