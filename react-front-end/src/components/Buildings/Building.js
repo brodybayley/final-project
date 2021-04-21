@@ -5,7 +5,7 @@ import ReviewsList from "../Reviews/ReviewsList";
 import BuildingAmenities from "./BuildingAmenities";
 import FavouriteButton from "../Favourites/FavouriteButton";
 import AmenMap from "../Map/AmenMap";
-// import PercentageCircles from "./PercentageCircles";
+import PercentageCircles from "./PercentageCircles";
 import StarIcon from "@material-ui/icons/Star";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -35,32 +35,33 @@ const Building = () => {
 
   return (
     <div className="building-container">
-      <div className="building-header">
-        <div key={building.id}>
-          <h1>{building.name}</h1>
-          <h3>{building.building_address}</h3>
-          <h4>
-            {building.average_building_rating ? (
-              <>
-                {" "}
-                {[...Array(building.average_building_rating)].map(
-                  (stars, index) => {
-                    return <StarIcon key={index} />;
-                  }
-                )}{" "}
-              </>
-            ) : null}
-          </h4>
-
-          <p>{building.address}</p>
+      <div className="building-header" key={building.id}>
+        <div className="building-header-content">
           <img
             className="building_header"
             src={building.image_url}
             alt={building.name}
           />
-          <FavouriteButton buildingId={building.building_id} />
+          <div className="building-header-text">
+            <h1>{building.name}</h1>
+            <h3>{building.building_address}</h3>
+            <h4>
+              {building.average_building_rating ? (
+                <>
+                  {" "}
+                  {[...Array(building.average_building_rating)].map(
+                    (stars, index) => {
+                      return <StarIcon key={index} />;
+                    }
+                  )}{" "}
+                </>
+              ) : null}
+            </h4>
+            <p>{building.address}</p>
+          </div>
         </div>
       </div>
+
       <div className="building-details">
         <div className="review-list">
           <div className="percentage-circle">
@@ -81,7 +82,7 @@ const Building = () => {
                   }{" "}
                 </>
               ) : (
-                "Loading"
+                "loading"
               )}
               <h3>Landlord Approval</h3>
             </div>
@@ -98,7 +99,11 @@ const Building = () => {
               <h3>Recommend to Friend</h3>
             </div>
           </div>
-          {/* <PercentageCircles /> */}
+
+          <FavouriteButton
+            className="favourite-button"
+            buildingId={building.building_id}
+          />
           <ReviewsList />
         </div>
         <div className="amenities-and-map">

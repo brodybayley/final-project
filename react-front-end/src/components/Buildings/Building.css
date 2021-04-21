@@ -1,17 +1,24 @@
 .amenities-box {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+  gap: 12px 12px;
 }
 
 .amenities-container {
   box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.1);
   padding: 24px;
+  position: relative;
+  margin-bottom: 45px;
 }
 
 .amenities-item {
   width: 100%;
   height: 100%;
   position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: solid rgba(0,0,0,0.1) thin;
 }
 
 .percentage-circle {
@@ -44,7 +51,41 @@
 }
 
 .building_amenities-image {
-  width: 100%;
+  width: 30px;
+  height: 30px;
 }
 
+.building-header {
+  display: grid;
+  grid-template: repeat(1, 1fr) / repeat(1, 1fr);
+  gap: 12px 12px;
+  margin-top: 30px;
+}
+
+.building-details {
+  display: grid;
+  grid-template: repeat(1, 1fr) / repeat(2, 1fr);
+  gap: 12px 12px;
+}
+
+.favourite-button { 
+  margin: 12px;
+}
+
+
+.building_header {
+  max-width: 100%; 
+  width: 800px;
+  margin: auto;
+}
+
+.building_header::after {
+  display: block;
+  position: relative;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
+  margin-top: -150px;
+  height: 150px;
+  width: 100%;
+  content: '';
+}
 /* remove */
