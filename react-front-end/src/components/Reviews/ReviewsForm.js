@@ -62,6 +62,14 @@ export default function ReviewsForm(props) {
     })
   }
 
+  const handleSubmit = (e) => {
+    if (recordForEdit !== null) {
+      handlePostEdit(recordForEdit.review_id, e);
+    } else {
+      handlePost(e);
+    }
+  };
+
   const handlePost = async (e) => { 
     e.preventDefault();
     const body = {
@@ -86,7 +94,7 @@ export default function ReviewsForm(props) {
   const handlePostEdit = async (reviewId, e) => { 
     e.preventDefault();
     const body = {
-      review_id: recordForEdit.review_id,
+      review_id: reviewId,
       title: formData.title, 
       comment: formData.comment,
       landlord_rating: formData.landlord_rating,
@@ -97,7 +105,7 @@ export default function ReviewsForm(props) {
       user_id: 11
     }
     try {
-      const { data } = await axios.put(`/api/reviews/${reviewId}`, body)
+      const { data } = await axios.put(`/api/reviews/`, body)
       console.log('>>data', data)
       window.location.reload()
     } catch (error) {
@@ -121,16 +129,6 @@ export default function ReviewsForm(props) {
   //       throw error;
   //     });
   // };
-
-  const handleSubmit = (e) => {
-    if (recordForEdit !== null) {
-      handlePostEdit(recordForEdit.review_id, e);
-    } else {
-      handlePost(e);
-    }
-  };
-
-  
 
 
   console.log("recordforedit: ", recordForEdit)
@@ -200,7 +198,7 @@ export default function ReviewsForm(props) {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                value={formData.title}
+                defaultValue={formData.title}
                 type="text"
                 variant="outlined"
                 required
