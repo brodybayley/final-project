@@ -25,6 +25,8 @@ const Favourites = () => {
 
   useEffect(() => {
     axios.get(`/api/users/${userId}/favourites`).then((res) => {
+      
+      console.log(res.data)
       setFavourite(res.data);
     });
   }, [userId]);
@@ -41,9 +43,9 @@ const Favourites = () => {
       });
     });
   };
-
   return (
     <div className="favourites-container">
+      <h1>Favourites</h1>
       <div className="favourites-header">
         {fav.map((favourite) => (
           <Card className="favourites-item" key={favourite.id}>

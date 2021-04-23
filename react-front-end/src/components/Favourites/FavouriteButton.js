@@ -29,6 +29,7 @@ export default function FavouriteButton(props) {
           }}
           aria-label="delete"
           variant="contained"
+          color="primary"
         >
           <FavoriteBorderIcon></FavoriteBorderIcon>
           Favourite this property!
@@ -41,6 +42,7 @@ export default function FavouriteButton(props) {
           }}
           aria-label="delete"
           variant="contained"
+          color="primary"
         >
           <Favorite></Favorite>
           Remove from favourite

@@ -138,7 +138,7 @@ const useStyles = makeStyles((theme) => ({
 
   sanFran: {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('https://images.unsplash.com/photo-1521464302861-ce943915d1c3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80')`,
-    backgroundSize: "cover",
+    backgroundSize: "cover"
   },
 
   vancouver: {
@@ -150,11 +150,12 @@ const useStyles = makeStyles((theme) => ({
   losAngeles: {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('https://images.unsplash.com/photo-1515896769750-31548aa180ed?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1434&q=80')`,
     backgroundSize: "cover",
+    backgroundPosition: "center"
   },
 
   newYork: {
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url('https://images.unsplash.com/photo-1576439564014-f4b336956d59?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1490&q=80')`,
-    backgroundSize: "cover",
+    backgroundSize: "cover"
   },
 
   toronto: {

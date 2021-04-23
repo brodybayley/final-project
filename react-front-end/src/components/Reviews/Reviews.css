@@ -27,7 +27,7 @@
 }
 
 .review-item:hover {
-  box-shadow: 4px 4px 0px 0px rgb(97, 218, 251);
+  box-shadow: 4px 4px 0px 0px #3f51b5;
 }
 
 .review-item-top {
@@ -38,4 +38,31 @@
 .review-item-bottom {
   display: flex;
   justify-content: flex-end;
+}
+
+.popup-title {
+  padding-top: 10px;
+}
+
+.popup-close {
+  position: absolute;
+  right: 50px;
+  min-width: 20px;
+  top: 35px;
+}
+
+.popup-close-button {
+  min-width: 20px;
+}
+
+.building_rating {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.area_rating {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

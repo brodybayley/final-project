@@ -2,8 +2,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo_transparent.png";
-import avatarimg from "../assets/3.jpg";
+import avatarimg from "../assets/1.jpg";
 import Avatar from "@material-ui/core/Avatar";
+import { deepPurple } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
   navList: {
@@ -16,7 +17,14 @@ const useStyles = makeStyles((theme) => ({
     width: "35px",
     height: "35px",
     marginRight: "10px",
+    color: theme.palette.getContrastText(deepPurple[500]),
+    backgroundColor: deepPurple[500],
   },
+
+  navName: {
+    marginRight: "40px",
+    color: "white"
+  }
 }));
 
 export default function Nav() {
@@ -37,8 +45,8 @@ export default function Nav() {
           <li>Favourites</li>
         </Link>
       </ul>
-      <Avatar alt="Cindy Baker" src={avatarimg} className={classes.avatar} />
-      <p className={classes.navList}>Jerome Wright</p>
+      <Avatar className={classes.avatar}>V</Avatar>
+      <p className={classes.navName}>Vanessa Yeung</p>
     </nav>
   );
 }
