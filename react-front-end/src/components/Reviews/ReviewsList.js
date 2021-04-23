@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   starRating: {
-    fill: "#61dafb",
+    fill: "#3f51b5",
   },
 }));
 

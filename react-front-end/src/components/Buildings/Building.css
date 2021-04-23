@@ -24,6 +24,7 @@
   justify-content: space-evenly;
   align-items: center;
   border: solid rgba(0,0,0,0.1) thin;
+  padding: 7px;
 }
 
 .percentage-circle {
@@ -56,7 +57,7 @@
 }
 
 .percantage-rating svg {
-  fill: green;
+  fill: #3f51b5;
 }
 
 .rating-circle {

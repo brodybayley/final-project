@@ -15,7 +15,6 @@ import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -178,7 +177,7 @@ export default function ReviewsForm(props) {
                 onChange={handleCheckbox}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6} className="building_rating">
               Building Rating
               <Rating
                 value={formData.building_rating}
@@ -187,7 +186,7 @@ export default function ReviewsForm(props) {
                 onChange={handleChange}
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={6} className="area_rating">
               Area Rating
               <Rating
                 value={formData.area_rating}
@@ -198,7 +197,7 @@ export default function ReviewsForm(props) {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                defaultValue={formData.title}
+                value={formData.title}
                 type="text"
                 variant="outlined"
                 required

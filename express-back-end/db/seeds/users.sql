@@ -41,7 +41,7 @@ INSERT INTO users (
     INSERT INTO users (
     username, email, password) 
     VALUES (
-    'Jerome Wright', 'bellaanthony@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+    'Vanessa Yeung', 'bellaanthony@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
     INSERT INTO users (
     username, email, password) 
     VALUES (
